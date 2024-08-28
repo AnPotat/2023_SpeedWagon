@@ -7,7 +7,7 @@ package frc.robot;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.motorcontrol.Spark;
-
+import edu.wpi.first.hal.PWMJNI;
 /**
  * The VM is configured to automatically run this class, and to call the functions corresponding to
  * each mode, as described in the TimedRobot documentation. If you change the name of this class or
@@ -25,28 +25,35 @@ public class Robot extends TimedRobot {
    private Spark rightMotor1 = new Spark(2);
    private Spark rightMotor2 = new Spark(3);
    private Joystick Joystick1 = new Joystick(0);
-   
+   // private Spark Led_Strips = new Spark(7);
+
   @Override
-  public void robotInit() {}
+  public void robotInit() {
+  //  Led_Strips.set(-0.25);
+  }
 
   @Override
   public void robotPeriodic() {}
 
   @Override
-  public void autonomousInit() {}
+  public void autonomousInit() {
+  //  Led_Strips.set(-0.25);
+  }
 
   @Override
   public void autonomousPeriodic() {}
 
   @Override
-  public void teleopInit() {}
+  public void teleopInit() {
+  //  Led_Strips.set(-0.25);
+  }
 
   @Override
   public void teleopPeriodic() {
     
     
-    double speed = -Joystick1.getRawAxis(1) * 0.6;
-    double turn = Joystick1.getRawAxis(4)  * 0.3;
+    double speed = Joystick1.getRawAxis(4);
+    double turn = -Joystick1.getRawAxis(1);
 
     double left = speed + turn;
     double right = speed - turn;
@@ -58,19 +65,25 @@ public class Robot extends TimedRobot {
   }
 
   @Override
-  public void disabledInit() {}
+  public void disabledInit() {
+  //  Led_Strips.set(-0.25);
+  }
 
   @Override
   public void disabledPeriodic() {}
 
   @Override
-  public void testInit() {}
+  public void testInit() {
+  //  Led_Strips.set(-0.25);
+  }
 
   @Override
   public void testPeriodic() {}
 
   @Override
-  public void simulationInit() {}
+  public void simulationInit() {
+  //  Led_Strips.set(-0.25);
+  }
 
   @Override
   public void simulationPeriodic() {}
